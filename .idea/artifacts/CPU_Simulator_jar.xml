@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CPU Simulator:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="CPU Simulator.jar">
+      <element id="module-output" name="CPU Simulator" />
+    </root>
+  </artifact>
+</component>
