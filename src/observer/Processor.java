@@ -36,18 +36,22 @@ public abstract class Processor implements Observer {
     public boolean CycleProcess(Task task) {
 
         if(status){
-            this.task.setDurationTime(this.task.getDurationTime()-1);
             if(this.task.getDurationTime() <= 0 ) {
-                this.task.setDurationTime(-1);
+                this.task.setDurationTime(0);
                 status = false;
             }
-        }else if(task != null ){
+        }
+        else if(task != null ){
             this.task = task;
-            task.setDurationTime(task.getDurationTime()-1);
+            task.setDurationTime(task.getDurationTime());
             task.setProcessorId(getProcessorId());
             status = true;
             return true;
         }
         return false;
+    }
+    public void EmptyProcessor(){
+        task = null;
+        status = false;
     }
 }

@@ -42,4 +42,7 @@ public class TaskCreator {
             System.out.println(Tasks[i]);
         }
     }
+    public static void emptyArray(){
+
+    }
 }

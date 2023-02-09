@@ -12,4 +12,9 @@ public class Intel extends Processor {
         String id = "Intel i7." + num;
         setProcessorId(id);
     }
+
+    @Override
+    public String toString() {
+        return getProcessorId();
+    }
 }

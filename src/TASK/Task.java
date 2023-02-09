@@ -68,7 +68,7 @@ public abstract class Task {
         return TaskId +
                 "{Priority=" + Priority +
                 ", CreationTime=" + CreationTime +
-                ", DurationTime=" + (DurationTime+1) +
+                ", DurationTime=" + DurationTime +
                 '}';
     }
 }

@@ -18,14 +18,14 @@ public class scheduler {
             assigned = processors[i].CycleProcess(pq.peek());
 
             Task tmp = ((Processor)processors[i]).getTask();
-            if( tmp != null && tmp.getDurationTime() == -1){
-                cycle.CycleProcess(tmp);
-                ((Processor)processors[i]).setTask(null);
-            }
+            cycle.CycleProcess( ((Processor) processors[i]).getTask() );
             if(assigned) {
-                cycle.CycleProcess(pq.peek());
                 pq.poll();
             }
+            if( tmp != null && tmp.getDurationTime() == 0){
+                ((Processor)processors[i]).EmptyProcessor();
+            }
+
             assigned = false;
         }
     }

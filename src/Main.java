@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        File file = new File("./testFiles/test11.txt");
-        int num = 0 , cycles = 0;
+
+        File file = new File("./testFiles/test33.txt");
+        int num = 0, cycles = 0;
         String ex = "";
         try {
             Scanner in = new Scanner(file);
@@ -16,8 +17,10 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        Simulator simulator = new Simulator(num,cycles,ex);
+        Simulator simulator = new Simulator(num, cycles, ex);
         simulator.simulate();
         reportPrinter.report(simulator.getCycles());
+        System.out.println();
+        reportPrinter.report(simulator.getCycles(), simulator.ProcessorsIDs());
     }
 }

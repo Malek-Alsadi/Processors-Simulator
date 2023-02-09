@@ -1,10 +1,6 @@
-import TASK.Task;
-import TASK.TaskCreator;
-import observer.AppleM;
-import observer.ClockCycle;
-import observer.Intel;
-import observer.Processor;
-
+import TASK.*;
+import observer.*;
+import validation.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.PriorityQueue;
@@ -58,12 +54,28 @@ public class Simulator {
             int r = TaskCreator.getTasks(i+1);
             if(r != -1){
                 for(;l<=r;l++){
-                    pq.add( TaskCreator.getTaskByIdx(l) );
+                    validator valid1 = new rangeValidator();
+                    validator valid2 = new priorityValidator();
+                    validator valid3 = new SucessValidator();
+                    valid1.setNext(valid2);
+                    valid2.setNext(valid3);
+                    Task task = TaskCreator.getTaskByIdx(l);
+                    if(valid1.check(task.getCreationTime(),task.getDurationTime(), task.getPriority(), i+1))
+                        pq.add( TaskCreator.getTaskByIdx(l) );
                 }
             }
 
             s.eachCycle(pq,cycles[i]);
         }
+    }
+    public String []ProcessorsIDs(){
+        String []ans = new String[processors.length];
+        int i = 0;
+        for(Processor p : processors){
+            ans[i] = p.toString();
+            i++;
+        }
+        return ans;
     }
 
 }

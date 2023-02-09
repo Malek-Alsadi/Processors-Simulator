@@ -11,4 +11,9 @@ public class AppleM extends Processor {
         String id = "Apple M2." + num;
         setProcessorId(id);
     }
+
+    @Override
+    public String toString() {
+        return getProcessorId();
+    }
 }
