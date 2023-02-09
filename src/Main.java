@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        File file = new File("./testFiles/test33.txt");
+        File file = new File("./testFiles/test22.txt");
         int num = 0, cycles = 0;
         String ex = "";
         try {

@@ -2,10 +2,7 @@ package TASK;
 
 public class PriorityDurationTask extends Task implements Comparable<Task>{
     public PriorityDurationTask(int priority, int creationTime, int durationTime) {
-        setPriority(priority);
-        setCreationTime(creationTime);
-        setDurationTime(durationTime);
-        setId();
+        super(priority, creationTime, durationTime);
     }
     public PriorityDurationTask(Task task){
         int creation = task.getCreationTime();
